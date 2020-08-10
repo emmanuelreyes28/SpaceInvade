@@ -31,6 +31,9 @@ public class EnemyScript : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             Destroy(other.gameObject);
+            //stop game
+            Time.timeScale = 0;
+
         }
         else if(other.gameObject.tag == "Bullet")
         {

@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class deployBullet : MonoBehaviour
 {
-    public GameObject bulletPrefab;
-    private GameObject player;
     public GameObject enemy;
     public float respawnTime = 1f;
     private int enemyCounter = 0;
@@ -13,14 +11,7 @@ public class deployBullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(enemyWave());
-    }
-
-    private void shootBullet()
-    {
-        GameObject clone = Instantiate(bulletPrefab) as GameObject;
-        clone.transform.position = new Vector2(player.transform.position.x, player.transform.position.y);
     }
 
     private void spawnEnemy()
@@ -33,11 +24,6 @@ public class deployBullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown("space"))
-        {
-            print("shoot");
-            shootBullet();
-        }
 
         if(movingEnemyScript.missed >= 3)
         {

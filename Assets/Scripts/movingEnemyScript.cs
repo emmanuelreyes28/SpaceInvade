@@ -7,12 +7,15 @@ public class movingEnemyScript : MonoBehaviour
     public float speed = 1f;
     Rigidbody2D rb;
     public static int missed = 0;
-    public float health = 1f;
+    public int maxHealth = 100;
+    public int currentHealth;
+    public HealthBarScript1 healthBar;
     // Start is called before the first frame update
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
-        //rb.velocity = new Vector2(0, -speed);
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     // Update is called once per frame
@@ -25,7 +28,7 @@ public class movingEnemyScript : MonoBehaviour
             Destroy(gameObject);
             missed += 1;
         }
-        if(health <= 0)
+        if(currentHealth <= 0)
         {
             Destroy(gameObject);
         }
@@ -36,10 +39,14 @@ public class movingEnemyScript : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             Destroy(other.gameObject);
+            //stop game
+            Time.timeScale = 0;
         }
         else if(other.gameObject.tag == "Bullet")
         {
-            health -= 1f;
+            //health -= 1f;
+            currentHealth -= 100;
+            healthBar.SetHealth(currentHealth);
         }
     }
 }

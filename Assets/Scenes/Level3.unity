@@ -409,6 +409,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: intermediateEnemy (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5110506393581305758, guid: 0fa9d66c3d0d7426ba7f1bb3bbcee8e6,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fa9d66c3d0d7426ba7f1bb3bbcee8e6, type: 3}
 --- !u!1 &1207475560
@@ -507,8 +512,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 044c8646942dc4294b2ba732aa858912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 260959887806110313, guid: 577492521ef2548a0aecf6991f76a700,
-    type: 3}
   enemy: {fileID: 0}
   respawnTime: 1
 --- !u!1001 &3685985663440715727
@@ -577,6 +580,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: intermediateEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5110506393581305758, guid: 0fa9d66c3d0d7426ba7f1bb3bbcee8e6,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fa9d66c3d0d7426ba7f1bb3bbcee8e6, type: 3}

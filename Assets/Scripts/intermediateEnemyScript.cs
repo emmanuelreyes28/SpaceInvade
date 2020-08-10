@@ -8,11 +8,15 @@ public class intermediateEnemyScript : MonoBehaviour
     //amount to move left and right from the start point
     public float delta = 2f;
     private Vector2 startPos;
-    public static float health = 0.5f;
+    public int maxHealth = 100;
+    public int currentHealth;
+    public HealthBarScript1 healthBar;
     // Start is called before the first frame update
     void Start()
     {
         startPos = transform.position;
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     // Update is called once per frame
@@ -24,7 +28,7 @@ public class intermediateEnemyScript : MonoBehaviour
         transform.position = v;
 
         //check health
-        if(health <= 0)
+        if(currentHealth <= 0)
         {
             Destroy(gameObject);
         }
@@ -35,10 +39,14 @@ public class intermediateEnemyScript : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             Destroy(other.gameObject);
+            //stop game
+            Time.timeScale = 0;
         }
         else if(other.gameObject.tag == "Bullet")
         {
-            health -= 0.1f;
+            //health -= 0.1f;
+            currentHealth -= 25;
+            healthBar.SetHealth(currentHealth);
         }
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class playerController : MonoBehaviour
 {
+    public GameObject bulletPrefab;
     public float speed = 5f;
     // Start is called before the first frame update
     void Start()
@@ -15,7 +16,18 @@ public class playerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown("space"))
+        {
+            print("shoot");
+            shootBullet();
+        }
     
+    }
+
+    private void shootBullet()
+    {
+        GameObject clone = Instantiate(bulletPrefab) as GameObject;
+        clone.transform.position = new Vector2(transform.position.x, transform.position.y);
     }
 
     void FixedUpdate()
